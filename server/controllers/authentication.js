@@ -1,8 +1,15 @@
+const User = require('../models/user');
+
 exports.signup = function(req, res, next) {
   //See if a user with the given email exists
   const email = req.body.email;
   const password = req.body.pass;
 
+  //See if email and password records are present
+  if (!email || !password)
+    return res.status(422).send({ error: 'You must provide a valid email and password' });
+
+  //Query MongoDB with Mongoose to search user model
   User.findOne({ email: email}, function(err, existingUser) {
     if (err) { return next(err) }
     //If a user with email exisits, return an error

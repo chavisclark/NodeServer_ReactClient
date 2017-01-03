@@ -8,7 +8,8 @@ const router = require('./router');
 const mongoose = require('mongoose');
 
 //DB setup
-mongoose.connect('mongodb://localhost/nsrc')
+mongoose.Promise = global.Promise;
+mongoose.connect('mongodb://localhost/nsrc');
 
 //App setup
 app.use(morgan('combined'));
