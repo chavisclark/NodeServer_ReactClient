@@ -40,3 +40,10 @@ exports.signup = function(req, res, next) {
 
   });
 }
+
+exports.signin = function(req, res, next) {
+  //User has been auth'd
+  //Give user token to proceed
+  res.send( {token: tokenForUser(req.user)} )
+
+}
