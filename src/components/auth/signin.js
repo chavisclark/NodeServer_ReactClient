@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 class Signin extends Component {
+  
   handleFormSubmit({email, password}) {
     console.log(email, password)
   }
+
   render() {
     const { handleSubmit } = this.props;
     return (
