@@ -18,7 +18,9 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
     //Compare passwords... is `password` = user.password
     user.comparePassword(password, function(err, isMatch) {
       if (err) {return (err) }
-      if (!isMatch) {return done(null, false)}      
+      if (!isMatch) {return done(null, false)}  
+
+      return done(null, user);    
     })
   })
 });
@@ -31,20 +33,20 @@ const jwtOptions = {
 
 //Create JWT Strategy
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
-    //See if th e user id in the payload exists in the database, 
-    //if it does call 'done' with that user
-    //otherwise, call done without a user object
-    const userId = payload.sub;
-    User.findById(userId, function(err, user) {
-      console.log(user)
-      if (err) { return done(err, false); }
+  //See if th e user id in the payload exists in the database, 
+  //if it does call 'done' with that user
+  //otherwise, call done without a user object
+  User.findById(payload.sub, function(err, user) {
+    if (err) { 
+      return done(err, false); 
+    }
 
-      if (user) {
-        done(null, user);
-      } else {
-        done(null, false);
-      }
-    })
+    if (user) {
+      done(null, user);
+    } else {
+      done(null, false);
+    }
+  })
 });
 
 
