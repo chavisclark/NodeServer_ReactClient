@@ -24,20 +24,14 @@ class Signin extends Component {
     return (
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
         <fieldset className="form-group">
-          <div>
-            <label>Email</label>
-            <div>
-              <Field className='form-control' name="email" component="input" type="text" placeholder="Email"/>
-            </div>
-          </div>
-          <div>
-            <label>Password</label>
-            <div>
-              <Field className='form-control' name="password" component="input" type="password" placeholder="Password"/>
-            </div>
-          </div>
-          <button action="submit" className="btn btn-primary">Sign in</button>
+          <label>Email</label>
+          <Field className='form-control' name="email" component="input" type="text" placeholder="Email"/>
         </fieldset>
+        <fieldset className="form-group">
+          <label>Password</label>
+          <Field className='form-control' name="password" component="input" type="password" placeholder="Password"/>
+        </fieldset>
+        <button action="submit" className="btn btn-primary">Sign in</button>
         {this.renderAlert()}
       </form>
     );
