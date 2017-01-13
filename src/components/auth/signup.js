@@ -3,13 +3,11 @@ import { Field, reduxForm } from 'redux-form';
 import * as actions from '../../actions';
 
 const renderField = ({ input, label, type, meta: { touched, error } }) => (
-  <div>
+  <fieldset className="form-group">
     <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type}/>
-      {touched && error && <span>{error}</span>}
-    </div>
-  </div>
+      <input {...input} className='form-control' placeholder={label} type={type}/>
+      {touched && error && <span className="error">{error}</span>}
+  </fieldset>
 )
 
 
@@ -20,15 +18,9 @@ class SignUp extends Component {
 
     return (
       <form>        
-        <fieldset className="form-group">
-          <Field className='form-control' name="email" component={renderField} type="text" label="Email"/>
-        </fieldset>
-        <fieldset className="form-group">
-          <Field className='form-control' name="password" component={renderField} type="password" label="Password"/>
-        </fieldset>
-        <fieldset className="form-group">
-          <Field className='form-control' name="passwordConfirm" component={renderField} type="password" label="Confirm Password"/>
-        </fieldset>
+        <Field name="email" component={renderField} type="text" label="Email"/>
+        <Field name="password" component={renderField} type="password" label="Password"/>
+        <Field name="passwordConfirm" component={renderField} type="password" label="Confirm Password"/>
         <button action="submit" className="btn btn-primary">Sign up</button>
       </form>
     )
