@@ -20,7 +20,27 @@ export function signinUser({email, password}) {
       .catch(response => {
         //If request is bad
         // - Show an error to user
+        console.log(response)
         dispatch(authError('Bad Login Info!'))
+      })
+  }
+}
+
+export function signupUser({email, password}) {
+  return function(dispatch) {
+    axios.post(`${API_URL}/signup`, {email, password})
+      .then(response => {
+          //If request is good...
+          // + Update state to indicate user is authenticated
+          dispatch({type: AUTH_USER});
+          // + Save the JWT token
+          localStorage.setItem('token', response.data.token);
+          // + redirect to accessible resource
+          browserHistory.push('/feature');  
+      })
+      .catch(response => {
+        console.log(response)
+        dispatch(authError(response.data.error))
       })
   }
 }

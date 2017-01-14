@@ -6,7 +6,6 @@ import * as actions from '../../actions';
 class Signin extends Component {
   
   handleFormSubmit({email, password}) {
-    console.log(this.props)
     this.props.signinUser({email, password});
   }
 
@@ -49,3 +48,6 @@ Signin = reduxForm({
 Signin = connect(mapStateToProps, actions)(Signin)
 
 export default Signin;
+
+
+
