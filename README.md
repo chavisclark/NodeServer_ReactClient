@@ -14,7 +14,9 @@ This project includes:
 
 ## Run the code
 
-Install and set up MongoDB, if not already installed on your local computer.
+> Install and set up MongoDB, if not already installed on your local computer.
+
+Start your instance of MongoDB:
 
 ```
 mongod
