@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, FETCH_MESSAGE  } from './types';
 
 const API_URL = 'http://localhost:3090';
 
@@ -54,7 +54,7 @@ export function authError (error) {
 
 export function signOutUser() {
   localStorage.removeItem('token');
-  
+  //trigger action to switch state to unauthorized
   return {
     type: UNAUTH_USER
   }
@@ -63,10 +63,15 @@ export function signOutUser() {
 export function fetchMessage(){
   return function(dispatch) {
     axios.get(API_URL, {
+      //send headers with axios request with token from localStorage
       headers: {authorization: localStorage.getItem('token') }
     })
       .then(response => {
-        console.log(response);
+        //trigger action to fetch the protected resource
+        dispatch({ 
+          type: FETCH_MESSAGE, 
+          payload: response.data.message
+        })
       });
   }
 }
