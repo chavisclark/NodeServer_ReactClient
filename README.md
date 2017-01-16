@@ -59,9 +59,10 @@ npm run dev
 ### Things to note
 * Express server built from scratch
 
-* Minimal use of ReactJS boilerplate for client: https://github.com/Stephen Grider's [ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter)
+* Minimal use of ReactJS boilerplate for client: Stephen Grider's [ReduxSimpleStarter](https://github.com/StephenGrider/ReduxSimpleStarter)
 
 * Testing will be added (I know, I know, I should've been doing TDD 🙈)
 
 
-Made with 💚 from my basement
+##### Made with 💚 from my basement 
+— C.C.
