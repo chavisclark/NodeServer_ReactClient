@@ -8,7 +8,6 @@ This project includes:
 * **MongoDB** => used for NOSQL database
 * **Axios** => used for Promise based HTTP requests
 * **Passport** => used for user authentication
-
 * Various libraries within the **React** & **Redux** ecosystems
 
 
