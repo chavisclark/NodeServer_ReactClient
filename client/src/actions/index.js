@@ -17,10 +17,9 @@ export function signinUser({email, password}) {
         // + redirect to accessible resource
         browserHistory.push('/feature');
       })
-      .catch(response => {
+      .catch(error => {
         //If request is bad
         // - Show an error to user
-        console.log(response)
         dispatch(authError('Bad Login Info!'))
       })
   }
@@ -28,7 +27,9 @@ export function signinUser({email, password}) {
 
 export function signupUser({email, password}) {
   return function(dispatch) {
-    axios.post(`${API_URL}/signup`, {email, password})
+    axios.post(`${API_URL}/signup`, {email, password}, {
+      responseType: 'json',
+    })
       .then(response => {
           //If request is good...
           // + Update state to indicate user is authenticated
@@ -38,9 +39,8 @@ export function signupUser({email, password}) {
           // + redirect to accessible resource
           browserHistory.push('/feature');  
       })
-      .catch(response => {
-        console.log(response)
-        dispatch(authError(response.data.error))
+      .catch((error) => {
+          dispatch(authError(error.response.data.error))          
       })
   }
 }

@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import App from './components/app';
+import Main from './components/main';
 import Signin from './components/auth/signin';
 import SignOut from './components/auth/signout';
 import SignUp from './components/auth/signup';
@@ -27,12 +28,13 @@ if (token) {
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <Route path="signin" component={Signin} />
-          <Route path="signout" component={SignOut} />
-          <Route path="signup" component={SignUp} />
-          <Route path="feature" component={RequireAuth(Feature)} />
-        </Route>
+      <Route path="/" component={App}>
+        <IndexRoute component={Main} />
+        <Route path="signin" component={Signin} />
+        <Route path="signout" component={SignOut} />
+        <Route path="signup" component={SignUp} />
+        <Route path="feature" component={RequireAuth(Feature)} />
+      </Route>
     </Router>
   </Provider>
   , document.querySelector('.container'));

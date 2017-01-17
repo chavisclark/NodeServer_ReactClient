@@ -7,12 +7,12 @@ class Header extends Component {
     if(this.props.authenticated) {
       //Show a link to sign out
       return [
-        <li key="1" className="nav-item nav-link">
-            <Link to="/signout">Sign Out</Link>
-        </li>,
          <li key="2" className="nav-item nav-link">
             <Link to="/feature">Feature</Link>
-        </li>      
+        </li>,
+        <li key="1" className="nav-item nav-link">
+            <Link to="/signout">Sign Out</Link>
+        </li>
       ]
     } else {
       //Show a link to sign in / sign up
@@ -33,7 +33,7 @@ class Header extends Component {
         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="/">Navbar</a>
+        <a className="navbar-brand" href="/">Express & React</a>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="nav navbar-nav">
             
