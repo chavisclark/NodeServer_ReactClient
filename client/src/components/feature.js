@@ -32,43 +32,30 @@ class Feature extends Component {
           <p>Install and set up MongoDB, if not already installed on your local computer.</p>
         </blockquote>
         <p>Start your instance of MongoDB:</p>
-        <pre>{
-          `
-            mongod
-          `
-        }</pre>
+        <pre>
+          {`mongod `}
+        </pre>
         <p>OR</p>
-        <pre>{
-          `
-            sudo mongod
-          `
+        <pre>{`sudo mongod`
         }</pre>
         <p>Within the /client directory run:</p>
         <pre>{
           `
-            npm install
-            npm run start
-          `
-        }</pre>
+npm install
+npm run start`}
+        </pre>
         <p>In order to run server you will need to create a config.js file in the root of the /server directory.</p>
         <p><strong>config.js</strong>
         </p>
 
-        <pre>
-        {`
-          
-          module.exports = {
-            secret: "YOUR_SECRET_HERE"
-          }
-        `
-        }</pre>
+        <pre>{`module.exports = {
+  secret: "YOUR_SECRET_HERE"
+}`}
+        </pre>
         <p>Within the /server directory run:</p>
-        <pre>{
-          `
-            npm install
-            npm run dev
-          `
-        }</pre>
+        <pre>{`npm install
+npm run dev`}
+        </pre>
         <h3><a id="Things_to_note_59"></a>Things to note</h3>
         <ul>
           <li>
