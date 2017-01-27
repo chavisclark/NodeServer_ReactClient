@@ -36,7 +36,7 @@ npm run start
 ```
 
 
-In order to run server you will need to create a config.js file in the root of the /server directory. 
+In order to successfully run server you will need to create a config.js file in the root of the /server directory. 
 
 **config.js**
 
