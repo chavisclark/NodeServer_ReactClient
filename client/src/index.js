@@ -18,9 +18,9 @@ import { AUTH_USER } from './actions/types';
 const createStoreWithMiddleware = applyMiddleware(reduxThink)(createStore);
 const store = createStoreWithMiddleware(reducers);
 const token = localStorage.getItem('token');
-// If there is a token, consider rge user signed in
+// If there is a token, consider the user signed in
 if (token) {
-  //we need to update application state
+  // This updates the application state
   store.dispatch({ type: AUTH_USER });
 }
 
