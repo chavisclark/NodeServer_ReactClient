@@ -4,7 +4,7 @@ import {Link} from 'react-router';
 
 class Header extends Component {
   renderLinks() {
-    if(this.props.authenticated) {
+    if (this.props.authenticated) {
       //Show a link to sign out
       return [
          <li key="2" className="nav-item nav-link">

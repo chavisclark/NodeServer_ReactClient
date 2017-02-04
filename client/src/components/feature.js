@@ -13,10 +13,10 @@ class Feature extends Component {
         <h1><a id="An_Express_Server_and_ReactJS_Client_0"></a>An Express Server and ReactJS Client</h1>
         <p>The purpose of this project was to create a simple solution for implementing a front-end client powered by React on a Node.js Express server.</p>
         <h5>
-          The following message is being retrieved from the server to further display how server-side authorization is working within the app:
+          The following message data is being retrieved from the server to further illustate server-side functionality and authorization working within the app:
         </h5>  
-        <p>
-             " {this.props.message} "
+        <p className="server_message">
+            {this.props.message}
         </p>
         <hr />
         <p>This project includes:</p>

@@ -54,6 +54,7 @@ export function authError (error) {
 
 export function signOutUser() {
   localStorage.removeItem('token');
+  window.location.replace = "/";
   //trigger action to switch state to unauthorized
   return {
     type: UNAUTH_USER
